@@ -1,4 +1,5 @@
 # EFTsecure payment gateway plugin for Magento
+<strong>Note: upload_1.7.x folder supports for only Magento 1.7.x</strong><br>
 <strong>Note: upload_1.8.x folder supports for only Magento 1.8.x</strong><br>
 <strong>Note: upload_1.9.x folder supports for only Magento 1.9.x</strong><br>
 <strong>Note: upload_2.x folder supports for Magento 2.x</strong>
@@ -8,7 +9,7 @@ Take instant eft payments on your Magento store using EFTsecure.
 
 Accept ABSA, Standard Bank, Capitec, Investec, FNB and Nedbank payments directly into your bank account.
 
-# Installation - For Magento 1.8.x ,1.9.x
+# Installation - For Magento 1.7.x, 1.8.x, 1.9.x
 <blockquote>
 <p><strong>NOTE</strong> Before you begin, make a backup of your Magento site.</p>
 </blockquote>
@@ -26,7 +27,7 @@ Accept ABSA, Standard Bank, Capitec, Investec, FNB and Nedbank payments directly
 <li>Log out of the admin page and then log back in to ensure activation of the module</li>
 </ol>
 
-# Configure - For Magento 1.8.x, 1.9.x
+# Configure - For Magento 1.7.x, 1.8.x, 1.9.x
 <ul>
 <li>The plugin is configured under <strong>System</strong>-&gt;<strong>Configuration</strong>-&gt;<strong>Payment Methods</strong>-&gt;<strong>EFTSecure</strong>.</li>
 <li>You need to add username and password.</li>
