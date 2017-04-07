@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Eftsecure_Eftpaymentmethod>
+      <version>1.0.0.0</version>
+    </Eftsecure_Eftpaymentmethod>
+  </modules>
+ 
+  <global>  
+    <helpers>
+      <eftpaymentmethod>
+        <class>Eftsecure_Eftpaymentmethod_Helper</class>
+      </eftpaymentmethod>
+    </helpers>
+ 
+    <blocks>
+      <eftpaymentmethod>
+        <class>Eftsecure_Eftpaymentmethod_Block</class>
+      </eftpaymentmethod>
+    </blocks>
+         
+    <models>
+      <eftpaymentmethod>
+        <class>Eftsecure_Eftpaymentmethod_Model</class>
+      </eftpaymentmethod>
+    </models>
+ 
+    <resources>
+      <eftpaymentmethod_setup>
+        <setup>
+          <module>Eftsecure_Eftpaymentmethod</module>
+        </setup>
+      </eftpaymentmethod_setup>
+    </resources>
+  </global>
+ 
+  <default>
+    <payment>
+      <eftpaymentmethod>
+        <active>0</active>
+        <model>eftpaymentmethod/paymentmethod</model>
+        <order_status>pending</order_status>
+        <title>EFTsecure</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+      </eftpaymentmethod>
+    </payment>
+  </default>
+   
+  <frontend>
+    <routers>
+      <eftpaymentmethod>
+        <use>standard</use>
+        <args>
+          <module>Eftsecure_Eftpaymentmethod</module>
+          <frontName>eftpaymentmethod</frontName>
+        </args>
+      </eftpaymentmethod>
+    </routers>
+	<layout>
+		<updates>
+			<eftpaymentmethod>
+				<file>eftpaymentmethod.xml</file>
+			</eftpaymentmethod>
+		</updates>
+    </layout>
+  </frontend>
+</config>
