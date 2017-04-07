@@ -1,6 +1,5 @@
 # EFTsecure payment gateway plugin for Magento
-<strong>Note: upload_1.7.x folder supports for only Magento 1.7.x</strong><br>
-<strong>Note: upload_1.8.x folder supports for only Magento 1.8.x</strong><br>
+<strong>Note: upload_1.x folder supports for Magento 1.7.x or 1.8.x</strong><br>
 <strong>Note: upload_1.9.x folder supports for only Magento 1.9.x</strong><br>
 <strong>Note: upload_2.x folder supports for Magento 2.x</strong>
 
