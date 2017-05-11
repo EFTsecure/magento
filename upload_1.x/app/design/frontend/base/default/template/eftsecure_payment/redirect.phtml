@@ -1,0 +1,28 @@
+<?php
+/**
+ *
+ */
+
+/** @var Eftsecure_Payment_Block_Redirect $this */
+
+?>
+
+<form method="post" id="eftsecure-form" action="https://services.callpay.com/eft/">
+    <input type="hidden" name="token" value="<?php echo $this->_getToken('token'); ?>"/>
+    <input type="hidden" name="amount" value="<?php echo number_format($this->_getOrder()->getGrandTotal(), 2); ?>" />
+    <input type="hidden" name="merchant_reference" value="<?php echo $this->_getOrder()->getIncrementId(); ?>" />
+    <input type="hidden" name="success_url" value="<?php echo $this->_getSuccessUrl(); ?>" />
+    <?php /*
+    <input type="hidden" name="error_url" value="<?php echo $this->_getErrorUrl(); ?>" />
+    <input type="hidden" name="cancel_url" value="<?php echo $this->_getCanceledUrl(); ?>" />
+    <input type="hidden" name="notify_url" value="<?php echo $this->_getNotifyUrl(); ?>" />
+    */ ?>
+</form>
+
+<script>
+    //Auto submit form on window load
+    window.onload = function() {
+        document.getElementById("eftsecure-form").submit();
+    }
+</script>
+
