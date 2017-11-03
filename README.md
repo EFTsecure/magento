@@ -1,56 +1,39 @@
 # EFTsecure payment gateway plugin for Magento
-<strong>Note: upload_1.x folder supports for Magento 1.7.x or 1.8.x</strong><br>
-<strong>Note: upload_1.9.x folder supports for only Magento 1.9.x</strong><br>
-<strong>Note: upload_2.x folder supports for Magento 2.x</strong>
+**Note: upload_1.x folder supports for Magento 1.8.x or 1.9.x**
+**Note: upload_2.x folder supports for Magento 2.0.x, 2.1.x and 2.2.x**
 
 # Description
 Take instant eft payments on your Magento store using EFTsecure.
 
 Accept ABSA, Standard Bank, Capitec, Investec, FNB and Nedbank payments directly into your bank account.
 
-# Installation - For Magento 1.7.x, 1.8.x, 1.9.x
-<blockquote>
-<p><strong>NOTE</strong> Before you begin, make a backup of your Magento site.</p>
-</blockquote>
+# Installation - For Magento 1.x
 
-<ol>
-<li>Click the Download Zip button and save to your local machine</li>
-<li>Transfer the zip file to your Magento webserver</li>
-<li>Unpack the archive in the root directory of your Magento instance</li>
-<li>Flush your Magento caches
-  <ul>
-  <li>In the admin page for your Magento instance, navigate to System-&gt;Cache Management</li>
-  <li>Click the 'Flush Magento Cache'</li>
-  </ul>
-</li>
-<li>Log out of the admin page and then log back in to ensure activation of the module</li>
-</ol>
+**NOTE:** Before you begin, make a backup of your Magento site.
 
-# Configure - For Magento 1.7.x, 1.8.x, 1.9.x
-<ul>
-<li>The plugin is configured under <strong>System</strong>-&gt;<strong>Configuration</strong>-&gt;<strong>Payment Methods</strong>-&gt;<strong>EFTSecure</strong>.</li>
-<li>You need to add username and password.</li>
-</ul>
+- Copy the Callpay_All.xml file into the app/etc/modules folder
+- Copy the Callpay folder into app/code/local folder
+- In the admin area navigate(click) on menu item System->Cache Management
+- On this page click 'Flush Magento Cache'
+- Eftsecure should then display as a payment method
+
+# Configure - For Magento 1.x
+
+- The plugin is configured in Admin under **System** -> **Configuration** -> **Payment Methods** -> **EFTSecure**
+- Add Eftsecure username and password and enable payment method
 
 # Installation - For Magento 2.x
-<ol>
-<li>Click the Download Zip button and save to your local machine</li>
-<li>Transfer the zip file to your Magento webserver</li>
-<li>Unpack the archive in the root directory of your Magento instance</li>
-<li>In command line, navigate to the installation directory of magento2
-Enter the following commands:
-<pre><code>php bin/magento setup:upgrade
-php bin/magento cache:clean
-</code></pre>
-</li>
-</ol>
+
+- Copy the Eftsecure folder into the app/code folder
+- In the root of the project run the following commands: 
+
+    php bin/magento setup:upgrade 
+	
+	php bin/magento cache:clean
 
 # Configure - For Magento 2.x
-<ol>
-<li>Log into the Magento Admin</li>
-<li>Go to <em>Stores</em> / <em>Configuration</em></li>
-<li>Go to <em>Sales</em> / <em>Payment Methods</em></li>
-<li>Scroll down to find the EFTsecure Settings</li>
-<li>Enter the API Username and Password. </li>
-<li>Save the settings</li>
-</ol>
+
+- The plugin is configured in Admin under **Stores** -> **Configuration**
+- On the Configuration page click on the **Sales** tab then on **Payment Methods** 
+- Add Eftsecure username and password and enable payment method
+- Save config
