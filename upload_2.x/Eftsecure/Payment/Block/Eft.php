@@ -20,4 +20,3 @@ class Eft extends \Magento\Framework\View\Element\Template
     }
 	
 }
-?>
