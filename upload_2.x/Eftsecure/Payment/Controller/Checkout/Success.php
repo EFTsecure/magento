@@ -33,7 +33,7 @@ class Success extends \Magento\Framework\App\Action\Action
 					$order->addStatusHistoryComment($reason, false);
 				}
 				$order->save();
-				echo json_encode(['reason'=>$reason,'successful'=>$successful]);
+				return json_encode(['reason'=>$reason,'successful'=>$successful]);
 			} else {
 				$this->_redirect('401');
 			}
@@ -43,4 +43,3 @@ class Success extends \Magento\Framework\App\Action\Action
 		}
 	}
 }
-?>
