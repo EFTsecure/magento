@@ -28,6 +28,7 @@ Accept ABSA, Standard Bank, Capitec, Investec, FNB and Nedbank payments directly
 - In the root of the project run the following commands: 
 
     php bin/magento setup:upgrade 
+	
 	php bin/magento cache:clean
 
 # Configure - For Magento 2.x
