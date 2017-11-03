@@ -17,7 +17,7 @@ Accept ABSA, Standard Bank, Capitec, Investec, FNB and Nedbank payments directly
 - On this page click 'Flush Magento Cache'
 - Eftsecure should then display as a payment method
 
-# Configure - For Magento 1.x
+# Configure - For Magento 1.7.x, 1.8.x, 1.9.x
 
 - The plugin is configured in Admin under **System** -> **Configuration** -> **Payment Methods** -> **EFTSecure**
 - Add Eftsecure username and password and enable payment method
