@@ -26,7 +26,7 @@ class Success extends \Magento\Framework\App\Action\Action
 				$reason = $this->getRequest()->getPost("reason");
 				$successful = $this->getRequest()->getPost("success");
 				if ($successful == 1) {
-					$state = Order::STATE_PAYMENT_REVIEW;
+					$state = Order::STATE_PROCESSING;
 					$status = $state;
 					$order->setState($state)->setStatus($status);
 				} else {
