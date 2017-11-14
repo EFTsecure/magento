@@ -21,6 +21,8 @@ Accept ABSA, Standard Bank, Capitec, Investec, FNB and Nedbank payments directly
 
 - The plugin is configured in Admin under **System** -> **Configuration** -> **Payment Methods** -> **EFTSecure**
 - Add Eftsecure username and password and enable payment method
+- Select successful order status (usually Payment Review, Processing or Complete)
+- Save config
 
 # Installation - For Magento 2.x
 
@@ -36,4 +38,6 @@ Accept ABSA, Standard Bank, Capitec, Investec, FNB and Nedbank payments directly
 - The plugin is configured in Admin under **Stores** -> **Configuration**
 - On the Configuration page click on the **Sales** tab then on **Payment Methods** 
 - Add Eftsecure username and password and enable payment method
+- Select successful order status (usually Payment Review, Processing or Complete)
 - Save config
+

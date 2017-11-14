@@ -10,12 +10,15 @@ class Success extends \Magento\Framework\App\Action\Action
 	protected $_storeManager;
 	protected $_scopeConfig;
 	protected $_encryptor;
- 
-    public function __construct(Context $context, \Magento\Checkout\Model\Session $checkoutSession, \Magento\Sales\Model\OrderFactory $orderFactory)
-    {
+
+	public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+								\Magento\Checkout\Model\Session $checkoutSession, \Magento\Sales\Model\OrderFactory $orderFactory,
+								\Magento\Store\Model\StoreManagerInterface $storeManager, \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig)
+	{
+		$this->_scopeConfig = $scopeConfig;
 		$this->_orderFactory = $orderFactory;
-        parent::__construct($context);
-    }
+		parent::__construct($context);
+	}
 	
 	public function execute()
 	{
@@ -26,7 +29,10 @@ class Success extends \Magento\Framework\App\Action\Action
 				$reason = $this->getRequest()->getPost("reason");
 				$successful = $this->getRequest()->getPost("success");
 				if ($successful == 1) {
-					$state = Order::STATE_PROCESSING;
+					$state = $this->_scopeConfig->getValue('payment/eftpay/success_status', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+					if (empty($state)) {
+						$state = \Magento\Sales\Model\Order::STATE_PROCESSING;
+					}
 					$status = $state;
 					$order->setState($state)->setStatus($status);
 				} else {
