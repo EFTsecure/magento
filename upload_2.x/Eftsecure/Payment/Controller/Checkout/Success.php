@@ -10,12 +10,15 @@ class Success extends \Magento\Framework\App\Action\Action
 	protected $_storeManager;
 	protected $_scopeConfig;
 	protected $_encryptor;
- 
-    public function __construct(Context $context, \Magento\Checkout\Model\Session $checkoutSession, \Magento\Sales\Model\OrderFactory $orderFactory)
-    {
+
+	public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+								\Magento\Checkout\Model\Session $checkoutSession, \Magento\Sales\Model\OrderFactory $orderFactory,
+								\Magento\Store\Model\StoreManagerInterface $storeManager, \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig)
+	{
+		$this->_scopeConfig = $scopeConfig;
 		$this->_orderFactory = $orderFactory;
-        parent::__construct($context);
-    }
+		parent::__construct($context);
+	}
 	
 	public function execute()
 	{
