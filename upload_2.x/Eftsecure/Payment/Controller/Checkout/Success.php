@@ -30,6 +30,9 @@ class Success extends \Magento\Framework\App\Action\Action
 				$successful = $this->getRequest()->getPost("success");
 				if ($successful == 1) {
 					$state = $this->_scopeConfig->getValue('payment/eftpay/success_status', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+					if (empty($state)) {
+						$state = \Magento\Sales\Model\Order::STATE_PROCESSING;
+					}
 					$status = $state;
 					$order->setState($state)->setStatus($status);
 				} else {

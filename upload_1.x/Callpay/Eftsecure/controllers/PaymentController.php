@@ -61,6 +61,9 @@ class Callpay_Eftsecure_PaymentController extends Mage_Core_Controller_Front_Act
             $order = Mage::getModel('sales/order')->loadByIncrementId($orderId);
             if ($success == 1) {
                 $orderState = Mage::getStoreConfig('payment/eftsecure/success_status', Mage::app()->getStore());
+                if (empty($orderState)) {
+                    $orderState = Mage_Sales_Model_Order::STATE_PROCESSING;
+                }
                 $order->setState($orderState, true, 'Payment Success.');
             } else {
                 $reason = $this->getRequest()->getPost('reason');
