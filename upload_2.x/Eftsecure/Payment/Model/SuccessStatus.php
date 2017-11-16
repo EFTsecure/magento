@@ -14,5 +14,6 @@ class SuccessStatus extends \Magento\Sales\Model\Config\Source\Order\Status
     protected $_stateStatuses = [
         \Magento\Sales\Model\Order::STATE_PAYMENT_REVIEW,
         \Magento\Sales\Model\Order::STATE_PROCESSING,
+        \Magento\Sales\Model\Order::STATE_COMPLETE
     ];
 }
