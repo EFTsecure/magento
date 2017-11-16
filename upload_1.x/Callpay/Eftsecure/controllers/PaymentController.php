@@ -23,6 +23,11 @@ class Callpay_Eftsecure_PaymentController extends Mage_Core_Controller_Front_Act
         curl_close($curl);
         $responseData = json_decode($response);
         if(!empty($responseData->token)){
+            try {
+                $order->sendNewOrderEmail();
+            } catch (Exception $ex) {
+                echo $ex->getMessage();die();
+            }
             $curl = curl_init('https://eftsecure.callpay.com/api/v1/eft/payment-key');
             curl_setopt($curl, CURLOPT_HEADER, 0);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
