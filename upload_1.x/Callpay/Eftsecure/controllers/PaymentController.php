@@ -68,7 +68,7 @@ class Callpay_Eftsecure_PaymentController extends Mage_Core_Controller_Front_Act
                 try {
                     $order->sendOrderUpdateEmail();
                 } catch (Exception $ex) {
-                    echo $ex->getMessage();die();
+                    
                 }
             } else {
                 $reason = $this->getRequest()->getPost('reason');
