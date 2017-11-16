@@ -1,8 +1,11 @@
 <?php
 namespace Eftsecure\Payment\Controller\Checkout;
+
 use Magento\Braintree\Model\PaymentMethod;
 use Magento\Framework\App\Action\Context;
 use Magento\Sales\Model\Order;
+use Symfony\Component\Config\Definition\Exception\Exception;
+
 class Success extends \Magento\Framework\App\Action\Action
 {
 	protected $_checkoutSession;
@@ -35,6 +38,13 @@ class Success extends \Magento\Framework\App\Action\Action
 					}
 					$status = $state;
 					$order->setState($state)->setStatus($status);
+					try {
+						$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+						$orderCommentSender = $objectManager->create('Magento\Sales\Model\Order\Email\Sender\OrderCommentSender');
+						$orderCommentSender->send($order, true, 'Payment successful');
+					} catch (Exception $e) {
+
+					}
 				} else {
 					$order->addStatusHistoryComment($reason, false);
 				}

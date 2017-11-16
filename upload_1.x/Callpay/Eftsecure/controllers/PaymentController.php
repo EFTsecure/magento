@@ -65,6 +65,11 @@ class Callpay_Eftsecure_PaymentController extends Mage_Core_Controller_Front_Act
                     $orderState = Mage_Sales_Model_Order::STATE_PROCESSING;
                 }
                 $order->setState($orderState, true, 'Payment Success.');
+                try {
+                    $order->sendOrderUpdateEmail();
+                } catch (Exception $ex) {
+                    
+                }
             } else {
                 $reason = $this->getRequest()->getPost('reason');
                 $comment = $order->addStatusHistoryComment($reason, Mage_Sales_Model_Order::STATE_PENDING_PAYMENT);
