@@ -1,5 +1,5 @@
 # EFTsecure payment gateway plugin for Magento 
-**Tested with Magento 2.0.x, 2.1.x and 2.2.x**
+**Tested with Magento 2.0.x, 2.1.x and 2.2.x** 
 
 **Note: upload_1.x on a different branch in this repo**
 
