@@ -10,7 +10,7 @@ Accept ABSA, Standard Bank, Capitec, Investec, FNB and Nedbank payments directly
 
 # Installation
 
-- Copy the Eftsecure folder into the app/code folder
+- Copy the Eftsecure folder into the app/code folder 
 - In the root of the project run the following commands: 
 ```
 php bin/magento setup:upgrade 
