@@ -1,7 +1,6 @@
 {
   "name": "callpay/eftsecure-magento-community-edition",
   "description": "Take instant eft payments on your Magento store using EFTsecure.",
-  "version": "1.0.2",
   "type": "metapackage",
   "require": {
   },
