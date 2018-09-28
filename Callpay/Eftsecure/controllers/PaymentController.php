@@ -63,7 +63,9 @@ class Callpay_Eftsecure_PaymentController extends Mage_Core_Controller_Front_Act
                 $orderState = Mage_Sales_Model_Order::STATE_PROCESSING;
                 $order->setState($orderState, true, 'Payment Success.');
                 try {
-                    $order->sendOrderUpdateEmail();
+                    if (!$order->getEmailSent()) {
+                        $order->sendOrderUpdateEmail();
+                    }
                 } catch (Exception $ex) {
                     Mage::logException($ex); 
                 }
