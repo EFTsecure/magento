@@ -63,6 +63,16 @@ class Callpay_Eftsecure_PaymentController extends Mage_Core_Controller_Front_Act
                 $orderState = Mage_Sales_Model_Order::STATE_PROCESSING;
                 $order->setState($orderState, true, 'Payment Success.');
                 try {
+                    if (!$order->hasInvoices() && $order->canInvoice()) {
+                        $invoice = $order->prepareInvoice();
+                        $invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::STATE_PAID);
+                        $invoice->register();
+                        $transactionSave = Mage::getModel('core/resource_transaction')
+                            ->addObject($invoice)
+                            ->addObject($invoice->getOrder());
+                        $transactionSave->save();
+                        $invoice->sendEmail();
+                    }
                     if (!$order->getEmailSent()) {
                         $order->sendNewOrderEmail();
                     }
