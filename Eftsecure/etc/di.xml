@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Callpay\Eftsecure\Api\SuccessApiInterface" type="Callpay\Eftsecure\Model\SuccessApi"/>
+    <type name="Callpay\Eftsecure\Model\SuccessApi">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session</argument>
+            <argument name="orderRepository" xsi:type="object">Magento\Sales\Api\OrderRepositoryInterface</argument>
+            <argument name="storeManager" xsi:type="object">Magento\Store\Model\StoreManagerInterface</argument>
+            <argument name="scopeConfig" xsi:type="object">Magento\Framework\App\Config\ScopeConfigInterface</argument>
+            <argument name="logger" xsi:type="object">Psr\Log\LoggerInterface</argument>
+            <argument name="request" xsi:type="object">Magento\Framework\App\RequestInterface</argument>
+        </arguments>
+    </type>
+    <type name="Callpay\Eftsecure\Service\AuthService"></type>
+    <type name="Callpay\Eftsecure\Service\EftSecureService">
+        <arguments>
+            <argument name="httpClient" xsi:type="object">GuzzleHttp\Client</argument>
+            <argument name="storeManager" xsi:type="object">Magento\Store\Model\StoreManagerInterface</argument>
+            <argument name="scopeConfig" xsi:type="object">Magento\Framework\App\Config\ScopeConfigInterface</argument>
+            <argument name="encryptor" xsi:type="object">Magento\Framework\Encryption\EncryptorInterface</argument>
+            <argument name="authService" xsi:type="object">Callpay\Eftsecure\Service\AuthService</argument>
+            <argument name="orderFactory" xsi:type="object">Magento\Sales\Model\OrderFactory</argument>
+        </arguments>
+    </type>
+    <preference for="Callpay\Eftsecure\Api\EftSecureInterface" type="Callpay\Eftsecure\Model\EftSecure"/>
+    <type name="Callpay\Eftsecure\Model\EftSecure">
+        <arguments>
+            <argument name="eftSecureService" xsi:type="object">Callpay\Eftsecure\Service\EftSecureService</argument>
+        </arguments>
+    </type>
+    <preference for="Callpay\Eftsecure\Api\OrderManagementInterface" type="Callpay\Eftsecure\Model\OrderManagement"/>
+</config>
